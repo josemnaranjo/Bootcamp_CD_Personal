@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    width: 400px;
+    height: 270px;
+    border: 1px inset grey;
+}
+
+.container-superior {
+    background-color: rgb(88, 163, 169);
+    height: 80px;
+}
+
+.container-inferior {
+    background-color: #ffff;
+    height: 150px;
+    margin-left: 20px;
+}
+
+.ubicacion-box, .edit-box {
+    display: flex;
+    gap: 10px;
+}
+
+.location-icon, .gear-icon {
+    width: 10px;
+}
+
+.user-icon-box{
+    width: 56px;
+    height: 56px;
+    border-radius: 100%;
+    border: 5px solid lightslategrey;
+    position: relative;
+    bottom: 30px;
+}
+.user-icon {
+    width: 50px;
+    height: 50px;
+    border: 3px solid black;
+    border-radius: 100%;
+}
+
+
+.info-box {
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    position: relative;
+    bottom: 15px;
+}
+
+.data-box {
+    max-width: 260px;
+    display: flex;
+    flex-wrap: wrap;
+    gap:8px
+}
+
+.dato1, .dato2 {
+    border-right: 1px solid gray;
+    padding-right: 7px;
+}

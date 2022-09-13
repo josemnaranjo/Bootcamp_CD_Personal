@@ -1,0 +1,29 @@
+.search-container , .plus-container ,.create-acc-container {
+    margin: 10px;
+}
+
+
+.search {
+    border: 2px solid rgb(14, 204, 147);
+    background-color: rgb(235, 233, 233);
+    border-radius: 20px;
+    padding: 3px 35px;
+    color: rgb(14, 204, 147);
+}
+
+.plus {
+    border: none;
+    background-color: rgb(14, 204, 147);
+    padding: 10px 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: large;
+}
+
+.create-account {
+    border: 2px solid black;
+    padding: 5px 20px;
+    background-color: blue;
+    color: white;
+    box-shadow: 3px 4px black;
+}

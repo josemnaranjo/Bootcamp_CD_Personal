@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+} 
+
+.intro-contenedor {
+    margin: 0px auto;
+    max-width: 50%;
+}
+
+
+.main-contenedor {
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-between;
+    max-width: 50%; 
+    /* MAIN-CONTENEDOR PUEDE TENER UN TAMAÑO MAXIMO DE 50% DEL BODY */
+}
+
+.left-side-contenedor {
+    display: flex;
+    max-width: 48%;
+    /* LEFT-CONTENEDOR VA A TENER UN 48% DEL TAMAÑO DE MAIN-CONTENDOR */
+}
+
+.title-contenedor {
+    display: flex;
+    align-items: center;
+    /* LOS ELEMENTOS SIN MAX WIDTH OCUPAN TODO EL ESPACIO DEL LUGAR DONDE SE ENCUENTRAN */
+}
+
+.title-contenedor p {
+    padding: 20px;
+}
+
+.img-contenedor{
+    display: flex;
+}
+
+
+img {
+    max-width: 100%;
+    /* PERO EN ESTE CASO, EN EL QUE LA IMAGEN ES MÁS GRANDE QUE EL CONTENEDOR, PONER UN 100% HACE QUE RESPETE EL TAMAÑO DEL CONTENEDOR PADRE */
+}

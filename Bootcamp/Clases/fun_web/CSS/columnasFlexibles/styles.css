@@ -1,0 +1,28 @@
+.row-1, .row-2, .row-3{
+    background-color: bisque;
+    width: auto;
+    display: flex;
+}
+
+.col-1y4, .col-1y3, .col-2y3, .col-2y5 ,.col-3y5 {
+    border: 1px solid black;
+}
+.col-1y4 {
+    flex:1;
+}
+
+.col-1y3 {
+    flex:1;
+}
+
+.col-2y3 {
+    flex:2;
+}
+
+.col-2y5 {
+    flex:2;
+}
+
+.col-3y5{
+    flex:3;
+}

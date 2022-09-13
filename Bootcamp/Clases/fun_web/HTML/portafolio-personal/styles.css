@@ -1,0 +1,33 @@
+th , td {
+    border: 1px solid black;
+}
+
+.socialSankes-img {
+    border: 3px solid black;
+    padding: 3px;
+    max-width: 60px;
+}
+
+
+
+#name , #email {
+    max-width: 100px;
+}
+
+.contact-me-container {
+    max-width: 420px ;
+}
+
+.message-container {
+    padding-top: 15px;
+}
+
+.message-container {
+    display: flex;
+    align-items: flex-start;
+    
+}
+
+button {
+    margin-top: 10px;
+}

@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center
+}
+
+
+.top-header{
+    display: flex;
+    justify-content: space-between;
+    width: 1170px;
+    height: 20px;
+    padding: 15px 15px 2px 15px;
+}
+
+
+.top-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 10px;
+}
+
+.icons {
+    display: flex;
+    gap:8px;
+}
+
+
+.fa-solid {
+    width: 16px;
+    height: 16px;
+    padding: 8px 9px;
+    gap: 5px
+}
+
+.actions a {
+    color: #ffff;
+    background-color: #326891;
+    text-decoration: none;
+    width: 100px;
+    padding: 8px;
+}

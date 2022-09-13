@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>OnClick - JS</title>
+</head>
+<body>
+    <div class="header-container">
+        <header>
+            <h1 class="headerTitle">Dojonary</h1>
+            <input type="text" class="searchBar" placeholder="Search...">
+            <button type="button" class="logButton" onclick="logOut()">Login</button>
+        </header>
+    </div>
+    <div class="main-container">
+        <div class="left-side">
+            <div class="space-up-right">
+                <div class="up-right-box">
+                    <h1>ninja</h1>
+                    <h3 class="noun">noun</h3>
+                    <p>Plural: <span class="plural">ninjas</span></p>
+                    <button type="button" class="buttonYellow" onclick="newNinja()" >13 Likes</button>
+                </div>
+                <div class="up-left-box">
+                    <h3>A practitioner skilled in the <a href="#">Japanese</a>
+                    art of <a href="#">ninjutsu</a></h3>
+                </div>
+            </div>
+            <div class="space-down-right">
+                <div class="up-right-box">
+                    <h1>ninja</h1>
+                    <h3 class="noun">noun</h3>
+                    <p>Plural: <span class="plural">ninjas</span></p>
+                    <button type="button" class="buttonYellow">37 Likes</button>
+                </div>
+                <div class="up-left-box">
+                    <h3>A <a href="#">programmer</a> who brearks space-down-right
+                    problems with <a href="#">zen</a>-like focus</h3>
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="space-up-left">
+                <h2>Dojonary is defined by YOU</h2>
+                <button type="button" class="greenButton" onclick="removeButton()">Add Definition</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

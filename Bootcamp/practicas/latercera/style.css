@@ -1,0 +1,77 @@
+*{
+    margin: 0;
+    padding: 0;;
+}
+
+header {
+    display: flex;
+    background-color:#1B3043;
+    align-items: center;
+    gap:20px;
+    height: 40px;
+    padding: 5px 0;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+.menu-header {
+    display: flex;
+    gap:10px;
+    margin-left:10px;
+}
+
+.search-menu{
+    display: flex;
+}
+
+.fa-magnifying-glass{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 15px;
+}
+
+.bar-izq, .bar-der {
+    height:45px;
+}
+
+.bar-izq {
+    border-right: 1px solid white;
+}
+
+.bar-der {
+    border-left: 1px solid white
+}
+
+
+.action-buttons{
+    display: flex;
+    margin-left: 690px;
+    gap:20px;
+    align-items: center;
+}
+
+.suscribete-button, .inicioSesion-button{
+    color: white;
+    padding: 10px;
+    border-radius: 25px;
+    border-style: none;
+}
+
+.suscribete-button {
+    background-color: #379BCC;
+    border-style: none;
+}
+
+.inicioSesion-button{
+    background-color:#1B3043;
+    border:1px solid white;
+}
+
+.inicioSesion-button:hover {
+    background-color: white;
+    color: black;
+}

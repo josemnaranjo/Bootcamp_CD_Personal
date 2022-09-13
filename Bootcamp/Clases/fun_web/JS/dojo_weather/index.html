@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">
+    <title>DojoWeather</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="title">
+                <h1>DojoWeather</h1>
+            </div>
+            <div class="cities">
+                <a href="#" class="burkbak-link" onclick="displayAlert()">Burbank</a>
+                <a href="#" class="chicago-link" onclick="displayAlert()" >Chicago</a>
+                <a href="#" class="dallas-link" onclick="displayAlert()">Dallas</a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="main-container">
+
+        <div class="top-main">
+            <div class="city-selected">
+                <h1>San Jose</h1>
+            </div>
+            <div class="temp-info-container">
+                <p>show temperature in </p>
+                <select name="temp-sis" id="temp-sis" onchange="celToFahren(this)">
+                    <option value="Cº">Cº</option>
+                    <option value="Fº">Fº</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="cards-container">
+
+            <div class="card-one">
+                <div class="card-one-data">
+                    <h1>Today</h1>
+                    <div class="weather-img-container">
+                        <img src="assets/some_rain.png" alt="some clouds" class="rain-img">
+                    </div>
+                    <div class="weather-description">
+                        <p>some rain</p>
+                    </div>
+                    <div class="temp-container">
+                        <p class="max-temp-one max-temp">
+                            24º
+                        </p>
+                        <p class="min-temp-one min-temp">
+                            18º
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-two">
+                <div class="card-two-data">
+                    <h1>Tomorrow</h1>
+                    <div class="weather-img-container">
+                        <img src="assets/some_sun.png" alt="sunny" class="sun-img">
+                    </div>
+                    <div class="weather-description">
+                        <p>some sun</p>
+                    </div>
+                    <div class="temp-container">
+                        <p class="max-temp-two max-temp">
+                            27º
+                        </p>
+                        <p class="min-temp-two min-temp">
+                            19º
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card-three">
+                <div class="card-three-data">
+                    <h1>Friday</h1>
+                    <div class="weather-img-container">
+                        <img src="assets/some_clouds.png" alt="cloudy" class="clouds-img">
+                    </div>
+                    <div class="weather-description">
+                        <p>some clouds</p>
+                    </div>
+                    <div class="temp-container">
+                        <p class="max-temp-three max-temp">
+                            21º
+                        </p>
+                        <p class="min-temp-three min-temp">
+                            16º
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-four">
+                <div class="card-four-data">
+                    <h1>Saturday</h1>
+                    <div class="weather-img-container">
+                        <img src="assets/some_sun.png" alt="sunny" class="sun-img">
+                    </div>
+                    <div class="weather-description">
+                        <p>some sun</p>
+                    </div>
+                    <div class="temp-container">
+                        <p class="max-temp-four max-temp">
+                            26º
+                        </p>
+                        <p class="min-temp-four min-temp">
+                            21º
+                        </p>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+
+
+        <div class="cookie-container">
+            <div class="cookie-data">
+                <div class="cookie-img">
+                    <img src="assets/cookie.png" alt="cookie">
+                </div>
+                <div class="cookie-info-text">
+                    <h2 class="cookie-info-title">Stop! Cookie time</h2>
+                    <p class="cookie-info-parag">We use cookies (sadly not the edible ones)
+                        to personalize content and ads. to provide social media features and
+                        to analyse our traffic. <a href="#">Read more...</a>
+                    </p>
+                </div>
+                <div class="button-container">
+                    <button type="button" onclick="removeCookiesMsg()">I Accept</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>

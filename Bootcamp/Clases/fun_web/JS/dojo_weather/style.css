@@ -1,0 +1,174 @@
+* {
+    margin:0;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    background-color: rgb(80, 191, 239);
+    color: white;
+}
+
+.header-container{
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.cities {
+    display: flex;
+    gap:70px;
+}
+.cities a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.top-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.temp-info-container {
+    display: flex;
+    gap:20px;
+}
+
+.line{
+    border-bottom: 2px solid black;
+    margin-top: 10px;
+}
+
+.cards-container{
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-between;
+}
+
+.card-one,.card-two, .card-three, .card-four {
+    max-width: 20%;
+    background-color: lightgray;
+    padding: 20px 0;
+} 
+
+.card-one-data, .card-two-data, .card-three-data, .card-four-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.weather-img-container{
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.rain-img, .sun-img, .clouds-img {
+    max-width: 90%;
+    border-radius: 100px;
+}
+
+.temp-container {
+    display: flex;
+    justify-content: center;
+    gap:60%;
+}
+
+.max-temp {
+    color: red;
+}
+
+.min-temp {
+    color: blue;
+}
+
+.cookie-container {
+    width: 48%;
+    background-color:lightgray;
+    border: 1px solid black;
+    position: fixed;
+    bottom: 5%;
+    padding: 1%;
+}
+
+.cookie-data{
+    display: flex;
+    align-items: center;
+    gap:5%;
+}
+
+.cookie-info-text{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    max-width: 80%;
+}
+
+
+.button-container {
+    width: 30%;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(73, 169, 210); ;
+}
+
+h1 { 
+    max-width: 100%;
+}
+
+
+@media screen and (max-width:800px) { 
+    .temp-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:1369px) {
+    h1 {
+        overflow: hidden;
+    }
+}
+
+@media screen and (max-width:1020px) {
+    .header-container .cities{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+}
+
+@media screen and (max-width:542px){
+    .header-container {
+        flex-direction: column;
+    }
+    .header-container .cities{
+        margin-top: 5%;
+        flex-direction: row;
+        gap:10px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .cookie-data{
+        flex-direction: column;
+    }
+}

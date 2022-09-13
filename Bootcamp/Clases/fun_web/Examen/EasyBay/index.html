@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Easy Bay</title>
+</head>
+<body>
+    <header>
+
+        <div class="top-header-container">
+            <img src="assets/leaf.png" alt="Leaf Icon" class="leaf-icon">
+            <div class="easyBayTitle">
+                <h1>EasyBay</h1>
+            </div>
+            <div class="search-space">
+                <input type="text" placeholder=" Search for anything ..." class="search-bar">
+                <button type="button"><img src="assets/search-dark.png" alt="Search!"></button>
+            </div>
+            <div class="cart-space">
+                <p>Sing In</p>
+                <a href="#" class="cart-img">
+                    <img src="assets/cart-dark.png" alt="Shopping Cart" class="cart-icon" onclick="alertCart()">
+                </a>
+            </div>
+        </div>
+
+        <div class="bottom-header-container">
+            <a href="#">Aeonium</a>
+            <a href="#">Andormischus</a>
+            <a href="#">Agave</a>
+            <a href="#">Aloe</a>
+            <a href="#">Anacampseros</a>
+            <a href="#">Aristaloe</a>
+            <a href="#">More</a>
+        </div>
+    </header>
+
+    <div class="line"></div>
+
+    <div class="main">
+
+        <h1 class="main-title-text">Your Source for Serious Succulent Specialities</h1>
+        
+        <div class="main-container-one">
+
+            <div class="main-space-left">
+
+                <div class="space-left-box">
+                    <h2 class="description-space-left">
+                        Discover succulent varieties one pot
+                        or rack at a time!
+                    </h2>
+                    <div class="discover-space-left">
+                        <h4>Discover</h4>
+                        <img src="assets/arrow-light.png" alt="Arrow" class="disco-arrow">
+                    </div>
+                </div>
+
+                <div class="space-right-box">
+                    <img src="assets/succulents-1.jpg" alt="succulents" class="suculents-img" onmouseover="changeSrc(this)" onmouseout="returnSrc(this)">
+                </div>
+                
+            </div>
+
+            <div class="main-space-right">
+                <div class="space-right-container">
+                    <img src="assets/aloe-m.jpg" alt="aloe" class="aloe-img">
+                    <div class="soothing-Aloe-space">
+                        <h4>Soothing Aloe</h4>
+                        <img src="assets/arrow-light.png" alt="Arrow" class="aloe-arrow">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="main-container-two">
+            <div class="space-plant">
+                <img src="assets/aeonium-s.jpg" alt="cactus" class="plant-img">
+                <p>Aeonium</p>
+            </div>
+            <div class="space-plant">
+                <img src="assets/aloe-s.jpg" alt="Aloe" class="plant-img">
+                <p>Aloe</p>
+            </div>
+            <div class="space-plant">
+                <img src="assets/cactus-s.jpg" alt="Cactus" class="plant-img">
+                <p>Cactus</p>
+            </div>
+            <div class="space-plant">
+                <img src="assets/echeveria-s.jpg" alt="Echeveria" class="plant-img">
+                <p>Echeveria</p>
+            </div>
+            <div class="space-plant">
+                <img src="assets/sedum-s.jpg" alt="Sedum" class="plant-img">
+                <p>Sedum</p>
+            </div>
+            <div class="space-plant">
+                <img src="assets/sempervivum-s.jpg" alt="Sempervivum" class="plant-img">
+                <p>Sempervivum</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="coockie-container" id="cookieCont">
+        <div class="cookie-img-space">
+            <img src="assets/alert-dark.png" alt="Alert!">
+        </div>
+        <div class="coockie-text-space">
+            <p>
+                This site makes use of third-party cookies, by clicking "I accept"
+                you agree to the terms outlined in our <a href="#">cookie policy.</a>
+            </p>
+        </div>
+        <button type="button" class="aceptBtn" onclick="removeCookies()">I Accept</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

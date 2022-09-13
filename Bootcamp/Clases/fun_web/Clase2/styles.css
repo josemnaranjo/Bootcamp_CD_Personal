@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    /* border: 1px solid red; */
+}
+
+.box {
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container-box {
+    display: flex;
+    flex-direction: row;
+}
+
+.box-left-container {
+    background-image: url(https://abs.twimg.com/sticky/illustrations/lohp_1302x955.png);
+    width: 54%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-right-container {
+    background-color: black;
+    width: 46%;
+    padding: 35px;
+}
+
+.icon-twitter {
+    width: 45px;
+    height: auto;
+}
+
+.tittle-container {
+    margin:48px 0;
+    width: 515px;
+}
+
+h1 , h3, p {
+    color:#fff;
+    font-family:'Kanit',sans-serif;
+}
+
+h1 , h3, button {
+    font-family:'Kanit',sans-serif;
+}
+
+h1 {
+    font-size: 75px;
+}
+
+.subtitle-container{
+    font-size: 38px;
+    margin: 0;
+    margin-bottom: 32px;
+}
+
+.btns-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.divisor-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+button, .divisor-container {
+    margin-bottom: 20px;
+    width: 298px;
+    height: 38px;
+    font-size: 16px;
+}
+
+#google:hover {
+    background-color: #E6E7E8;
+}
+
+#google  {
+    background-color: #ffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#apple:hover {
+    background-color: #D8D5D6;
+}
+#apple {
+    background-color: #e6e6e6;
+}
+
+#crearCuenta {
+    background-color: #1A8CD8;
+    color: #ffff;
+    font-weight: 700;
+}
+button {
+    border-radius: 35px;
+    gap: 5px
+}
+
+button img {
+    width: 16px;
+    height: auto;
+}
+
+.divisor-container {
+    display: flex;
+}
+
+.divisor-container div {
+    border-bottom: 1px solid rgb(47,51,54);
+    width: 130px;
+    height: 10px;
+    margin-top: 3px;
+}
+
+h6 {
+    width: 300px;
+    height: 32px;
+}
+
+
+.footer {
+    display: flex;
+    width: 1905px;
+    height: 48px;
+}
