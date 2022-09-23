@@ -41,19 +41,36 @@ button {
     height: 50px;
     width: 400px;
     margin: 1% auto;
-    padding: 5px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5px;
     background-color: #A0E7E5;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     border-radius: 9px;
 }
 
+
+.row2 {
+    width: 100%;
+}
+
 .col {
     width: 29%;
-    display: flex;
     margin: 0 auto;
+}
+
+.col2 {
+    display: flex;
+    margin: 4px auto;
+}
+
+.col2 input {
+    width: 70%;
+}
+
+.col2 button {
+    width: 30%;
 }
 
 p{

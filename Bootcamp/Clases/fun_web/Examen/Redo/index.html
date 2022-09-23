@@ -22,7 +22,7 @@
             </div>
             <div class="cart-container">
                 <p>Sign In</p>
-                <button type="button" class="cart-button"><img src="assets/cart-dark.png" alt="cart-icon" class="cart-icon"></button>
+                <button type="button" class="cart-button"><img src="assets/cart-dark.png" alt="cart-icon" class="cart-icon" onclick="alertCart()"></button>
             </div>
         </div>
         <nav>
@@ -49,26 +49,65 @@
             <!-- INI COL IZQUIERDA -->
             <div class="col-main-1-left">
                 <div class="cm1l-col-1">
-                    <h3 class="cm1l-c1-text">Discover succulent varieties one pot or rack at a time</h3>
+                    <h2 class="cm1l-c1-text">Discover succulent varieties one pot or rack at a time</h2>
                     <p class="cm1l-c1-discovery">Discover <img src="assets/arrow-light.png" alt="arrow-to-right" class="cm1l-c1-discovery-arrow"></p>
                 </div>
                 <div class="cm1l-col-2">
-                    <img src="assets/succulents-1.jpg" alt="succulents" class="cm1l-col-2-img">
+                    <img src="assets/succulents-1.jpg" alt="succulents" class="cm1l-col-2-img" onmouseover="changeSrc(this)" onmouseleave="returnSrc(this)">
                 </div>
             </div>
             <!-- FIN COL IZQUIERDA -->
 
             <!-- INI COL DERECHA -->
-            <div class="col-main-1-right"></div>
+            <div class="col-main-1-right">
+                <div class="clm1r-col-1">
+                    <img src="assets/aloe-m.jpg" alt="aloe" class="cm2r-img">
+                </div>
+                <div class="clm2r-col-2">
+                    <p class="cm2r-c2-text">Soothing Aloe<img src="assets/arrow-light.png" alt="arrow-to-right" class="cm2r-c2-text-arrow"></p>
+                </div>
+            </div>
         </div>
         <!-- FIN FILA 1 -->
 
         <!-- INICIO FILA 2 -->
-        <div class="row-main-2"></div>
+        <div class="row-main-2">
+            <div class="col-main-2">
+                <img src="assets/aeonium-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Aeonium</p>
+            </div>
+            <div class="col-main-2">
+                <img src="assets/aloe-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Aloe</p>
+            </div>
+            <div class="col-main-2">
+                <img src="assets/cactus-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Cactus</p>
+            </div>
+            <div class="col-main-2">
+                <img src="assets/echeveria-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Echeveria</p>
+            </div>
+            <div class="col-main-2">
+                <img src="assets/sedum-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Sedum</p>
+            </div>
+            <div class="col-main-2">
+                <img src="assets/sempervivum-s.jpg" alt="aeonium" class="clm2-img">
+                <p class="clm2-text">Sempervivum</p>
+            </div>
+        </div>
         <!-- FIN FILA 2 -->
 
         <!-- INICIO COOKIES -->
-        <div class="row-main-3"></div>
+        <div class="row-main-3" onclick="removeCookies()" id="cookieCont">
+            <img src="assets/alert-dark.png" alt="alert-icon" class="rm3-icon">
+            <p class="rm3-text">This site makes use of third-party cookies,
+                by clicking "I accept" you agree to the terms outlined in our
+                <a href="#">cookie policy</a>.
+            </p>
+            <button type="button" class="rm3-btn">I accept</button>
+        </div>
         <!-- FIN COOCKIES -->
     </main>
     <!-- FIN CUERPO PRINCIPAL DE LA PAGINA -->
