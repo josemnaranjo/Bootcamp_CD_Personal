@@ -190,11 +190,6 @@ const listClientsIdsSortByTaxNumber = () => {
 
 // 2 Arreglo con los nombres de cliente ordenados de mayor a menor por la suma TOTAL de 
 //los saldos de cada cliente en los bancos que participa.
-const sortClientsTotalBalances = () => {
-   
-
-}
-
 
 
 
@@ -224,7 +219,7 @@ const sortClientsTotalBalances = () => {
 // console.log('Pregunta 1');
 // console.log(listClientsIdsSortByTaxNumber());
 // console.log('Pregunta 2');
-console.log(sortClientsTotalBalances());
+// console.log(sortClientsTotalBalances());
 // console.log('Pregunta 3');
 // console.log(banksClientsTaxNumbers());
 // console.log('Pregunta 4');
