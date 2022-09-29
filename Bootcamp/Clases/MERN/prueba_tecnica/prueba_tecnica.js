@@ -190,22 +190,46 @@ const listClientsIdsSortByTaxNumber = () => {
 
 // 2 Arreglo con los nombres de cliente ordenados de mayor a menor por la suma TOTAL de 
 //los saldos de cada cliente en los bancos que participa.
+const sortClientsTotalBalances = ()=> {
+    const clientsName = clients.map(client => {
+        let arrAccounts = [];
+        
+        //Ese && es un operador ternario, y le indica que ejecute la operacion que viene despues de los &&
+        // const totalBalance = accounts.filter(account => client.id === account.clientId && arrAccounts.push(account.balance));
+
+        //con el .map se hace un nuevo recorrido, lo que volvería al codigo más "lento"
+        const totalBalance = accounts.filter(account => client.id === account.clientId).map((arr)=> arrAccounts.push(arr.balance));
 
 
+        // se arma un objeto cuyo nombre de la llave es client.name y el valor es el reduce de arrAccount (que es la suma de los balances)
+        return { 
+            [client.name]: arrAccounts.reduce((a,b)=> a + b)
+        }
+    })
+    //buscar que hace object.values =>
+    return  clientsName.sort((a,b) => Object.values(b)[0] - Object.values(a)[0]).map((elemento)=> Object.keys(elemento)[0]);
+}
+
+console.log(sortClientsTotalBalances());
 
 // 3 Objeto en que las claves sean los nombres de los bancos y los valores un arreglo 
 //con los ruts de sus clientes ordenados alfabeticamente por nombre.
 
 
+
 // 4 Arreglo ordenado decrecientemente con los saldos de clientes que tengan más de 25.000 en el Banco SANTANDER
+
 
 
 // 5 Arreglo con ids de bancos ordenados crecientemente por la cantidad TOTAL de dinero que administran.
 
 
+
 // 6 Objeto en que las claves sean los nombres de los bancos y los valores el número de clientes que solo tengan cuentas en ese banco.
 
+
 // 7 Objeto en que las claves sean los nombres de los bancos y los valores el id de su cliente con menos dinero.
+
 
 
 // 8 Agregar nuevo cliente con datos ficticios a "clientes" y agregar una cuenta en el BANCO ESTADO 
