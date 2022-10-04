@@ -1,0 +1,25 @@
+* {
+    padding:0;
+    margin:0 auto;
+}
+
+.App {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #dddddd;
+    border: 2px solid black;
+    width: 95%;
+    /* height: 1000px; */
+}
+
+.containerTwo {
+    display:flex;
+    padding:15px 0 15px 0;
+}
+
+
+.subconContainer {
+    width:100%;
+    display:flex;
+    margin-top:25px;
+}
