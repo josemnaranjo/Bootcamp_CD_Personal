@@ -9,6 +9,7 @@ const Pestana = (props) => {
     const handleClick = (value) =>{
         const aux = Object.values(info)[value];
         const contentID = "content"+value;
+        alert("Hola!");
         setTexto(aux[contentID])
     }
 
