@@ -11,7 +11,7 @@ const ToDo = () => {
     }
 
     const crearPendiente = () => {
-        tareas.push(tarea);
+        setTareas([...tareas,tarea])
         setTarea("");
         console.log(tareas);
     }
@@ -42,3 +42,4 @@ const ToDo = () => {
 }
 
 export default ToDo;
+

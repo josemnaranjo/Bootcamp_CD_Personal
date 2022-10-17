@@ -1,11 +1,11 @@
 
 import './App.css';
-import Wrapper from './views/Wrapper'
+import WrapperForm from './views/WrapperForm';
 
 function App() {
   return (
     <div className="App">
-      <Wrapper/>
+      <WrapperForm/>
     </div>
   );
 }

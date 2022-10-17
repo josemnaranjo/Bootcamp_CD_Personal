@@ -3,12 +3,12 @@ import React, {useState} from 'react';
 
 const BoxGenerator = () => {
     const [color, setColor] = useState("");
-    const [colors] = useState([]);
+    const [colors,setColors] = useState([]);
 
 
     const handleCreateCube = (e) => {
         e.preventDefault();
-        colors.push(color);
+        setColors([...colors,color]);
         console.log(colors);
         setColor("");
     }

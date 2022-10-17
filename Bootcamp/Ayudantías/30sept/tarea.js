@@ -1,6 +1,6 @@
 //Desafio: crear funcion que permita ordenar un arreglo recibiendo 3 parametros (arreglo,propiedad por la que se desea ordenar, tipo de ordenamiento)
 
-const pokemones = ([
+const pokemones = [
     { id: 5, name: "Charmeleon", types: ["fire"], power:30 },
     { id: 9, name: "Blastoise", types: ["water"], power:35 },
     { id: 12, name: "Butterfree", types: ["bug", "flying"], power:10 },
@@ -24,29 +24,28 @@ const pokemones = ([
     { id: 146, name: "Moltres", types: ["fire", "flying"], power:65 },
     { id: 148, name: "Dragonair", types: ["dragon"], power:55 },
     { id: 1, name: "Bulbasaur", types: ["poison", "grass"], power:25 },
-  ]);
+  ];
 
 const animales = ["perro","gato","chancho","delfin"];
 
-function comparaPkmPorNombre (array,propiedad, typeOfOrder) {
+function comparaPkmPorNombre (array,p,typeOfOrder) {
    const aux = array.sort((a,b)=>{
     if(typeOfOrder === "asc") {
-        if(a.propiedad<b.propiedad) return -1
-        if(a.propiedad>b.propiedad) return 1
+        if(a[p]<b[p]) return -1
+        if(a[p]>b[p]) return 1
         return 0
     }
     if (typeOfOrder === "desc"){
-        if(a.propiedad<b.propiedad) return 1
-        if(a.propiedad>b.propiedad) return -1
+        if(a[p]<b[p]) return 1
+        if(a[p]>b[p]) return -1
         return 0
     }
    });
+   return aux
 }
 
 
-console.log(comparaPkmPorNombre(pokemones,"name","asc"));
-
-
+console.log(comparaPkmPorNombre(pokemones,"name","desc"));
 
 
 

@@ -106,14 +106,3 @@ console.log(animales.sort(compare));
 //Desafio: crear funcion que permita ordenar un arreglo recibiendo 3 parametros (arreglo,propiedad por la que se desea ordenar, tipo de ordenamiento)
 
 
-
-function ordenarArray(array,props,typeOfOrder){
-    
-    
-}
-
-console.log(ordenarArray(pokemones,"name","asc"));
-
-
-
-
