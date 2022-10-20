@@ -1,0 +1,10 @@
+.infoCharContainer{
+    margin-top: 35px;
+}
+
+.infoChar{
+    width: 700px;
+    margin: 0 auto;
+    border: 2px solid black;
+    padding: 25px;
+}
