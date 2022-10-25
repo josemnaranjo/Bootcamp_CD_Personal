@@ -46,39 +46,43 @@ const Formulario = (props) => {
                 onSubmitProp(values);
             }}
             >
-            {({errors,touched}) => ( 
-                <Form>
-                <h1>Formulario de registro</h1>
-                <div>
-                    <label htmlFor='firstName'>Nombre:</label>
-                    <Field type='text' name='firstName' placeholder='Nombre'/>
-                    {/* {errors.firstName && touched.firstName ? (
-                        <div>{errors.firstName}</div>
-                    ): null} */}
-                </div>
+            {({errors,touched,handleSubmit}) => {
+                return ( 
+                    <Form onSubmit={handleSubmit}>
+                    <h1>Formulario de registro</h1>
+                    <div>
+                        <label htmlFor='firstName'>Nombre:</label>
+                        <Field type='text' name='firstName' placeholder='Nombre'/>
+                        {errors.firstName && touched.firstName ? (
+                            <div>{errors.firstName}</div>
+                        ): null}
+                    </div>
+                    
+                    <div>
+                        <label htmlFor='lastName'>Apellido:</label>
+                        <Field type='text' name='lastName' placeholder='Apellido'/>
+                    </div>
+                    
+                    <div>
+                        <label htmlFor='email'>Correo electrónico:</label>
+                        <Field type='text' name='email' placeholder='Correo electrónico'/>
+                    </div>
+                    
+                    <div>
+                        <label htmlFor='passWord'>Contraseña:</label>
+                        <Field type='password' name='passWord' placeholder='Contraseña'/>
+                    </div>
+                    
+                    <div>
+                        <label htmlFor='confirmPassword'>Confirma contraseña:</label>
+                        <Field type='password' name='confirmPassword' placeholder='Confirma tu contraseña'/>
+                    </div>
+                    <button type='submit'>Enviar datos</button>
+                </Form>
+                )
+            }}
+            
                 
-                <div>
-                    <label htmlFor='lastName'>Apellido:</label>
-                    <Field type='text' name='lastName' placeholder='Apellido'/>
-                </div>
-                
-                <div>
-                    <label htmlFor='email'>Correo electrónico:</label>
-                    <Field type='text' name='email' placeholder='Correo electrónico'/>
-                </div>
-                
-                <div>
-                    <label htmlFor='passWord'>Contraseña:</label>
-                    <Field type='password' name='passWord' placeholder='Contraseña'/>
-                </div>
-                
-                <div>
-                    <label htmlFor='confirmPassword'>Confirma contraseña:</label>
-                    <Field type='password' name='confirmPassword' placeholder='Confirma tu contraseña'/>
-                </div>
-                <button type='submit'>Enviar datos</button>
-            </Form>
-            )}
             </Formik>
         </div>
     );

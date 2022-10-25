@@ -2,8 +2,7 @@ import axios from "axios";
 
 
 export const getAllData = async (recurso,id)=> {
-    const data= await axios.get(`https://swapi.dev/api/${recurso}/${id}`)
-    console.log("desde servicio api",data);
+    const data= await axios.get(`https://swapi.dev/api/${recurso}/${id}`);
     return data.data;
 }
 
@@ -13,8 +12,8 @@ export const getCharacter = async(id)=>{
     return charater.data;
 }
 
-// export const getHomeWorld = async(url)=>{
-//     const homeWorld = await axios.get(url)
-//     console.log("desde data-service,getHomeWorld: ",homeWorld.data);
-//     return homeWorld.data;
-// }
+export const getHomeWorld = async(url)=>{
+    const homeWorld = await axios.get(url)
+    console.log("desde data-service,getHomeWorld: ",homeWorld.data);
+    return homeWorld.data;
+}

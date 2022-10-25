@@ -18,8 +18,8 @@ const Formulario = (props) => {
         e.preventDefault();
         try{
             const informationFromService = await getAllData(recurso,id);
-            console.log("desde llamada api formulario",informationFromService);
-            handleInformation(informationFromService,recurso);
+            console.log("desde llamada api formulario",informationFromService,recurso);
+            handleInformation(informationFromService);
             setError(false);
         }catch(err){
             console.log(err.message)
