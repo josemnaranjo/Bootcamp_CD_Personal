@@ -1,6 +1,9 @@
+
+//importamos los controladores
 const PersonController = require('./controllers/person.controller');
 
 
-module.exports = app=> {
+module.exports = app => {
     app.get('/api',PersonController.index);
+    app.post('/api/people',PersonController.createPerson)
 }
