@@ -2,23 +2,31 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 
-const ProductManager = () => {
+const ProductManager = (props) => {
+    const {setProducts,setLoaded} = props;
     const [title,setTitle] = useState("");
     const [price,setPrice] = useState("");
     const [description, setDescription] = useState("");
 
     const handleSubmit = e => {
         e.preventDefault();
-        axios.post('http://localhost:8000/api/product', {
+        axios.post('http://localhost:8000/api/product/create', {
             title,
             price,
             description
         })
         .then(res=>console.log(res))
         .catch(err=>console.log(err))
+        
         setTitle("");
         setPrice("");
         setDescription("")
+
+        axios.get('http://localhost:8000/api/product/findAll')
+        .then(res=>{
+            setProducts(res.data);
+            setLoaded(true)
+        })
     }
 
 
