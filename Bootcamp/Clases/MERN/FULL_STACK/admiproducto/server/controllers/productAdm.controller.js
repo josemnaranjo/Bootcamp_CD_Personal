@@ -31,3 +31,9 @@ module.exports.getOneAndUpdate = (req,res)=>{
         .then(updatedProduct=>res.json(updatedProduct))
         .catch(err=>res.json(err))
 }
+
+module.exports.deleteOne = (req,res)=>{
+    Product.deleteOne({_id:req.params.id})
+        .then(deletedConfirmation=>res.json(deletedConfirmation))
+        .catch(err=>res.json(err))
+}

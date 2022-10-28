@@ -5,5 +5,6 @@ module.exports = app => {
     app.get('/api/product/findAll',ProductAdm.getProducts);
     app.get('/api/product/find/:id',ProductAdm.getOneProduct);
     app.put('/api/product/:id/edit',ProductAdm.getOneAndUpdate);
+    app.delete('/api/product/delete/:id',ProductAdm.deleteOne);
 }
 

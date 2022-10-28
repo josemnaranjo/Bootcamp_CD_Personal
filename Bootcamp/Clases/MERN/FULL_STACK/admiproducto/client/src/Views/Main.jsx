@@ -15,11 +15,15 @@ const Main = () => {
         })
     }, []);
 
+    const removeFromDom = productId => {
+        setProducts(products.filter(product=>product._id !==productId));
+    }
+
 
     return (
         <div>
             <ProductManager setProducts={setProducts} setLoaded={setLoaded} />
-            {loaded && <ProductList products={products}/>}
+            {loaded && <ProductList products={products} removeFromDom={removeFromDom}/>}
         </div>
     );
 }

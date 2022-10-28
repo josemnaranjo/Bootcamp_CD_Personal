@@ -8,7 +8,7 @@ const ProductManager = (props) => {
     const [price,setPrice] = useState("");
     const [description, setDescription] = useState("");
 
-    const handleSubmit = e => {
+    const handleSubmitClick = e => {
         e.preventDefault();
         axios.post('http://localhost:8000/api/product/create', {
             title,
@@ -30,10 +30,11 @@ const ProductManager = (props) => {
     }
 
 
+
     return (
         <div>
             <h1>Product Manager</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmitClick}>
                 <p>
                     <label htmlFor='title'>Title</label>
                     <input type='text' value={title} onChange={e => setTitle(e.target.value)}/>
