@@ -2,7 +2,6 @@ import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import ProductManager from '../components/ProductManager';
 import ProductList from '../components/ProductList';
-import DetailProduct from './DetailProduct';
 
 const Main = () => {
     const [products, setProducts] = useState([]);

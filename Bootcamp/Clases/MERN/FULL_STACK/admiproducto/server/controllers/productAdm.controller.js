@@ -1,5 +1,5 @@
 const { response } = require('express');
-const {Product} = require('../modules/productAdm.model');
+const {Product} = require('../models/productAdm.model');
 
 
 module.exports.createProduct = (req,res)=>{
@@ -23,5 +23,11 @@ module.exports.getProducts = (req,res)=>{
 module.exports.getOneProduct = (req,res)=>{
     Product.findById(req.params.id)
         .then(product=>res.json(product))
+        .catch(err=>res.json(err))
+}
+
+module.exports.getOneAndUpdate = (req,res)=>{
+    Product.findByIdAndUpdate({_id:req.params.id},req.body,{new:true})
+        .then(updatedProduct=>res.json(updatedProduct))
         .catch(err=>res.json(err))
 }
