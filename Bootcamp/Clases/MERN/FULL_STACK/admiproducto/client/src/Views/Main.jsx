@@ -19,10 +19,17 @@ const Main = () => {
         setProducts(products.filter(product=>product._id !==productId));
     }
 
+    const onSubmitProp = product => {
+        axios.post('http://localhost:8000/api/product/create', product)
+        //copiamos el elemento products y modificamos con la data de response
+        .then(res=>setProducts([...products,res.data]))
+        .catch(err=>console.log(err))
+    }
+
 
     return (
         <div>
-            <ProductManager setProducts={setProducts} setLoaded={setLoaded} />
+            <ProductManager initialTitle="" initialPrice="" initialDescription="" onSubmitProp={onSubmitProp} />
             {loaded && <ProductList products={products} removeFromDom={removeFromDom}/>}
         </div>
     );

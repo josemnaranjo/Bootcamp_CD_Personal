@@ -45,37 +45,49 @@ const PackageForm = () => {
                 } catch(err){
                     console.log(err);
                 }
-                
             }}
             >
-                {({errors,touched,handleSubmit})=>{
+                {({errors,touched})=>{
                     return(
                         <div>
                             <h2>Formulario de viajes</h2>
                             <Form>
-                                <label htmlFor='packageName'>Nombre del paquete</label>
-                                <Field type='text' name='packageName' />
-                                {errors.packageName && touched.packageName ? <p>{errors.packageName}</p>: null}
+                                <div>
+                                    <label htmlFor='packageName'>Nombre del paquete </label>
+                                    <Field type='text' name='packageName' />
+                                    {errors.packageName && touched.packageName ? <p>{errors.packageName}</p>: null}
+                                </div>
 
-                                <label htmlFor='origin'>Origen</label>
-                                <Field type='text' name='origin' />
-                                {errors.origin && touched.origin ? <p>{errors.origin}</p>: null}
+                                <div>
+                                    <label htmlFor='origin'>Origen </label>
+                                    <Field type='text' name='origin' />
+                                    {errors.origin && touched.origin ? <p>{errors.origin}</p>: null}
+                                </div>
 
-                                <label htmlFor='destination'>Destino</label>
-                                <Field type='text' name='destination' />
-                                {errors.destination && touched.destination ? <p>{errors.destination}</p>: null}
-
-                                <label htmlFor='price'>Precio</label>
-                                <Field type='number' name='price' />
-                                {errors.price && touched.price ? <p>{errors.price}</p>: null}
+                                <div>
+                                    <label htmlFor='destination'>Destino </label>
+                                    <Field type='text' name='destination' />
+                                    {errors.destination && touched.destination ? <p>{errors.destination}</p>: null}
+                                </div>
 
 
-                                <label htmlFor='arrive_date'>Nombre del paquete</label>
-                                <Field type='date' name='arrive_date' />
-                                {errors.arrive_date && touched.arrive_date ? <p>{errors.arrive_date}</p>: null}
+                                <div>
+                                    <label htmlFor='price'>Precio </label>
+                                    <Field type='number' name='price' />
+                                    {errors.price && touched.price ? <p>{errors.price}</p>: null} 
+                                </div>
+
+
+                                <div>
+                                    <label htmlFor='arrive_date'>Fecha de llegada </label>
+                                    <Field type='date' name='arrive_date' />
+                                    {errors.arrive_date && touched.arrive_date ? <p>{errors.arrive_date}</p>: null}
+                                </div>
+
+                                <div>
+                                    <button type='submit' >Agregar</button>
+                                </div>
                                 
-                                
-                                <button type='submit'>Agregar</button>
 
                             </Form>
                         </div>

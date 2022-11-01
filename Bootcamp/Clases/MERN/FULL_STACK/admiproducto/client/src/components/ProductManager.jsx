@@ -1,40 +1,26 @@
 import React, {useState} from 'react';
-import axios from 'axios';
 
 
 const ProductManager = (props) => {
-    const {setProducts,setLoaded} = props;
-    const [title,setTitle] = useState("");
-    const [price,setPrice] = useState("");
-    const [description, setDescription] = useState("");
+    const { initialTitle,initialPrice, initialDescription, onSubmitProp} = props;
+    const [title,setTitle] = useState(initialTitle);
+    const [price,setPrice] = useState(initialPrice);
+    const [description, setDescription] = useState(initialDescription);
 
-    const handleSubmitClick = e => {
+    const onSubmit = e =>{
         e.preventDefault();
-        axios.post('http://localhost:8000/api/product/create', {
-            title,
-            price,
-            description
-        })
-        .then(res=>console.log(res))
-        .catch(err=>console.log(err))
-        
+        //esta es las funcion que cambia según donde sea renderizado este componente
+        onSubmitProp({title,price,description});
+        //esto es para setear en 0 cuando se haga un actualizacion
         setTitle("");
         setPrice("");
         setDescription("")
-
-        axios.get('http://localhost:8000/api/product/findAll')
-        .then(res=>{
-            setProducts(res.data);
-            setLoaded(true)
-        })
     }
-
-
 
     return (
         <div>
             <h1>Product Manager</h1>
-            <form onSubmit={handleSubmitClick}>
+            <form onSubmit={onSubmit}>
                 <p>
                     <label htmlFor='title'>Title</label>
                     <input type='text' value={title} onChange={e => setTitle(e.target.value)}/>
