@@ -1,0 +1,15 @@
+npm init -y
+npm i  express mongoose cors
+touch server.js
+mkdir server
+cd server
+mkdir config
+mkdir models
+mkdir controllers
+mkdir routes
+cd ..
+npx create-react-app client
+cd client
+npm i axios react-router-dom formik moment
+
+ 
