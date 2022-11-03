@@ -45,7 +45,6 @@ const Formulario = (props) => {
         }
 
             onSubmit={(values,{setSubmmiting})=>{
-                console.log(values);
                 onSubmitProps(values);
             }}
             >

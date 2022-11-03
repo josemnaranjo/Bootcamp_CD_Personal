@@ -17,11 +17,11 @@ const ProductForm = (props) => {
             validationSchema={ Yup.object().shape({
                 nombre: Yup.string()
                 .min(4,"El nombre es muy corto")
-                .max(10, "El nombre es muy largo")
-                .required("Por favor ingresa un nombre"),
+                .max(10, "El nombre es muy largo"),
+                // .required("Por favor ingresa un nombre"),
 
                 precio:Yup.number()
-                .required("Por favor ingresa un precio")
+                // .required("Por favor ingresa un precio")
             })}
 
             onSubmit={(values, {setSubmittin})=>{

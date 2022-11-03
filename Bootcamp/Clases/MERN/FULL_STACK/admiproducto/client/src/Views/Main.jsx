@@ -1,31 +1,36 @@
 import React, {useState,useEffect} from 'react';
-import axios from 'axios';
 import ProductManager from '../components/ProductManager';
 import ProductList from '../components/ProductList';
+import { getProducts,createProduct } from '../services/product-services';
+
 
 const Main = () => {
     const [products, setProducts] = useState([]);
     const [loaded, setLoaded] = useState(false);
 
-    useEffect(() => {
-        axios.get('http://localhost:8000/api/product/findAll')
-        .then(res=>{
-            setProducts(res.data);
+
+    const getProductsFromService = async()=>{
+        try{
+            const productsFromService = await getProducts();
+            setProducts(productsFromService);
             setLoaded(true)
-        })
+        }catch(err){
+            console.log("Ups, algo ha salido mal", err)
+        }
+    }
+
+    useEffect(() => {
+        getProductsFromService();
     }, []);
 
     const removeFromDom = productId => {
         setProducts(products.filter(product=>product._id !==productId));
     }
 
-    const onSubmitProp = product => {
-        axios.post('http://localhost:8000/api/product/create', product)
-        //copiamos el elemento products y modificamos con la data de response
-        .then(res=>setProducts([...products,res.data]))
-        .catch(err=>console.log(err))
+    const onSubmitProp = async (product) => {
+        const response =  await createProduct(product);
+        setProducts([...products,response]);
     }
-
 
     return (
         <div>

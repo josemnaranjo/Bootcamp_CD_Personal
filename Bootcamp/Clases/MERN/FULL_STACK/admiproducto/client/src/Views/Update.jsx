@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import ProductManager from '../components/ProductManager';
+import { findOneProduct, updateProduct } from '../services/product-services';
 
 const Update = () => {
     const params = useParams();
@@ -11,19 +11,22 @@ const Update = () => {
     const [description,setDescription]= useState("");
     const [loaded,setLoaded]=useState(false);
 
+    const findOneProductFromService = async ()=>{
+        const thatOne = await findOneProduct(id);
+        setTitle(thatOne.title);
+        setPrice(thatOne.price);
+        setDescription(thatOne.description);
+        setLoaded(true);
+    }
+
     useEffect(() => {
-        axios.get('http://localhost:8000/api/product/find/'+ id)
-            .then(res=>{
-                setTitle(res.data.title);
-                setPrice(res.data.price);
-                setDescription(res.data.description);
-                setLoaded(true);
-            })
+        findOneProductFromService();
     }, []);
 
-    const updateProduct = product =>{
-        axios.put(`http://localhost:8000/api/product/${id}/edit`, product)
-            .then(res=>console.log(res));
+    const updateProductFromService = async (product) =>{
+        const upProd = await updateProduct(id,product);
+        alert("Producto actualizado con exito");
+        return upProd
     }
 
     return (
@@ -32,9 +35,11 @@ const Update = () => {
             initialTitle={title} 
             initialPrice={price} 
             initialDescription={description} 
-            onSubmitProp={updateProduct}
-            />
-             )}                
+            onSubmitProp={updateProductFromService}
+            />)
+             }{
+                <Link to='/'>Home</Link>
+             }                
         </div>
     );
 }

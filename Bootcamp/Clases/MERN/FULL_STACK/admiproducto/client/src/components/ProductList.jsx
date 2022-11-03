@@ -1,17 +1,23 @@
-import axios from 'axios';
-import React, {useState,useEffect} from 'react';
+
+import React from 'react';
 import { Link } from 'react-router-dom';
+import { dProduct } from '../services/product-services';
 
 const ProductList = (props) => {
     const {products, removeFromDom} = props;
 
- 
+const deleteProductFromService = (id) =>{
+    try{
+        dProduct(id);
+        removeFromDom(id);
+        console.log("Producto borrado con éxito")
+    }catch(err){
+        console.log("Ups, no pudimos borrar el producto seleccionado", err)
+    }
+}
     
     const deleteProduct = (id)=>{
-        axios.delete('http://localhost:8000/api/product/delete/'+id)
-            .then(res=>{
-                removeFromDom(id)
-            })
+        deleteProductFromService(id);
     }
 
     return (

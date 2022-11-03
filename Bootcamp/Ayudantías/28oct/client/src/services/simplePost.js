@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-export async function simpleGet (url,values) {
+export async function simplePost (url,values) {
     try {
-        const data = axios.post(url,values)
-            return data.data 
+        const response = axios.post(url,values)
+            return response
     } catch(err){
         console.log(err)
     }

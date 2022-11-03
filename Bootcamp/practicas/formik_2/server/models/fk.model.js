@@ -7,7 +7,7 @@ const FkSchema = new mongoose.Schema({
             true,"El nombre es obligatorio"
         ]
     },
-    lasName: {
+    lastName: {
         type:String,
         required: [
             true,"El apellido es obligatorio"

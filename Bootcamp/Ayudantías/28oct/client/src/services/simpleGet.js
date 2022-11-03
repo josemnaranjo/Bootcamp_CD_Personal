@@ -2,8 +2,8 @@ import axios from 'axios';
 
 export async function simpleGet (url) {
     try {
-        const data = axios.get(url)
-            return data.data 
+        const response = axios.get(url)
+            return response 
     } catch(err){
         console.log(err)
     }

@@ -8,8 +8,10 @@ module.exports.findAll = (req,res) =>{
 
 module.exports.create = (req,res)=>{
     Product.create(req.body)
-        .then((newProduct)=>res.json({product: newProduct}))
-        .catch(err=>res.json({mensaje:"Algo salio mal ",err})) 
+    //le pasamos un mensaje vacío para que podamos usar un if en react, y así modificarlo a nuestro antojo
+        .then((newProduct)=>res.json({message:"", product: newProduct}))
+        //mandamos un error más definido
+        .catch(err=>res.json({mensaje:"Algo salio mal ",error: err.errors})) 
 }
 
 module.exports.findOne = (req,res)=> {
