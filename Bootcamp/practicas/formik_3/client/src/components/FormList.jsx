@@ -1,11 +1,11 @@
 import React from 'react';
-import {Formik,Form,Field} from 'formik';
+
 
 
 const FormList = () => {
     return (
         <div>
-            
+            <h1>Hola hola desde formList </h1>
         </div>
     );
 }
