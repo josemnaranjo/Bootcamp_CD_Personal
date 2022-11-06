@@ -23,7 +23,7 @@ module.exports.findOneProduct = (req,res)=>{
 
 module.exports.editOneProduct = (req,res)=>{
     Product.findByIdAndUpdate({_id:req.params.id},req.body,{new:true})
-        .then((product)=>res.json({product:product}))
+        .then((product)=>res.json({message:product}))
         .catch(err=>res.json({message:err}))
 }
 

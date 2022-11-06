@@ -3,9 +3,12 @@ import { getAllProducts } from '../services/product-services';
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { useNavigate } from "react-router-dom";
 
 const Main = () => {
     const [products,setProducts] = useState([]);
+    const navigate = useNavigate();
+    
 
     const getProductsFromService = async()=>{
         try{
@@ -15,6 +18,10 @@ const Main = () => {
         }catch(err){
             console.log("ocurrió un error al intentar traer todos los productos ",err )
         }
+    }
+
+    const toUpdate =(id)=>{
+        navigate("/actualizar-producto/"+id)
     }
 
     useEffect(() => {
@@ -39,11 +46,10 @@ const Main = () => {
                             <td>{product.nombre}</td>
                             <td>{product.descripcion}</td>
                             <td>{product.cantidad}</td>
-                            <td>{<Button>Borrar</Button>} {<Button>Actualizar</Button>}</td>
+                            <td>{<Button>Borrar</Button>} {<Button onClick={()=>toUpdate(product._id)}>Actualizar</Button>}</td>
                         </tr>
                     ))}
                 </tbody>
-
             </Table>
         </div>
     );
