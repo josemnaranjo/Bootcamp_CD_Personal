@@ -36,3 +36,12 @@ export const updateProduct = async(values,id)=>{
         console.log(err)
     }
 }
+
+export const deleteOneProduct =  async (id)=>{
+    try{
+        const result = axios.delete(`http://localhost:8000/api/ferre/delete/${id}`)
+        return result
+    }catch(err){
+        console.log(err)
+    }
+}

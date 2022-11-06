@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useNavigate } from "react-router-dom";
+import { deleteOneProduct } from '../services/product-services';
 
 const Main = () => {
     const [products,setProducts] = useState([]);
@@ -13,7 +14,6 @@ const Main = () => {
     const getProductsFromService = async()=>{
         try{
             const productsFromService = await getAllProducts();
-            // console.log(productsFromService)
             setProducts(productsFromService)
         }catch(err){
             console.log("ocurrió un error al intentar traer todos los productos ",err )
@@ -22,6 +22,12 @@ const Main = () => {
 
     const toUpdate =(id)=>{
         navigate("/actualizar-producto/"+id)
+    }
+
+    const removeProdcut = (id)=>{
+        const removeProductFromService = deleteOneProduct(id);
+        setProducts(products.filter((product)=>product._id!== id));
+        console.log(removeProductFromService)
     }
 
     useEffect(() => {
@@ -46,7 +52,7 @@ const Main = () => {
                             <td>{product.nombre}</td>
                             <td>{product.descripcion}</td>
                             <td>{product.cantidad}</td>
-                            <td>{<Button>Borrar</Button>} {<Button onClick={()=>toUpdate(product._id)}>Actualizar</Button>}</td>
+                            <td>{<Button onClick={()=>removeProdcut(product._id)}>Borrar</Button>} {<Button onClick={()=>toUpdate(product._id)}>Actualizar</Button>}</td>
                         </tr>
                     ))}
                 </tbody>
