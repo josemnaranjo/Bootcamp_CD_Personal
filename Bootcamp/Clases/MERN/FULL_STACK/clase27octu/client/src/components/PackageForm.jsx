@@ -2,19 +2,23 @@ import React from 'react';
 import moment from 'moment';
 import {Formik, Form,Field} from 'formik';
 import * as Yup from 'yup';
-import { createTravel } from '../services/travel-service';
+import { createTravel, getTravel } from '../services/travel-service';
+import { useParams } from 'react-router-dom';
 
 const PackageForm = () => {
+    const {id} = useParams(); 
 
+   
     return (
         <div>
             <Formik
+            enableReinitialize
             initialValues={{
                 packageName:'',
                 origin:'',
                 destination:'',
                 price:'',
-                arrive_date: moment().format('dd-MM-yyyy')
+                arrive_date: moment().format('yyyy-MM-DD')
             }}
 
             validationSchema = {Yup.object().shape({
@@ -40,7 +44,6 @@ const PackageForm = () => {
             onSubmit={async(values)=>{
                 try{
                     const createTravelInService = await createTravel(values);
-                    console.log(values);
                     console.log("desde onSubmit de PackageForm",createTravelInService);
                 } catch(err){
                     console.log(err);
