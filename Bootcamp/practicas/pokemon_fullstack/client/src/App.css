@@ -1,0 +1,12 @@
+.App {
+  text-align: center;
+}
+
+table {
+    margin: 70px auto;
+    max-width: 900px;
+}
+
+.btn {
+    margin-right: 10px;
+}
