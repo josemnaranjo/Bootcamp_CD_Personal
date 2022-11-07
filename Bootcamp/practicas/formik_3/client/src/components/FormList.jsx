@@ -8,6 +8,7 @@ import { useParams } from 'react-router-dom';
 
 
 const FormList = () => {
+    
     const navegate = useNavigate();
     const {id} = useParams();
     const [product,setProduct]=useState({
@@ -15,37 +16,42 @@ const FormList = () => {
         descripcion:'',
         cantiad:0
     })
+    const [errores,setErrores]= useState([]);
 
     const getOneProductFromService = async ()=>{
-        try{
-            const productToUpdate = await findOne(id);
-            setProduct({...productToUpdate})
-        }catch(err){
-            console.log(err)
-        }
+        const productToUpdate = await findOne(id);
+        setProduct({...productToUpdate})
     }
 
 
     const createNewProductFromService = async (product)=>{
-        try{
+        try {
             const newProduct = id ? updateProduct(product,id) : await createProduct(product);
-           setProduct(newProduct);
-           alert("Producto creado con exito");
-           navegate('/')
+            setProduct(newProduct);
+            navegate('/')
         }catch(err){
-            console.log(err);
-            alert('Ups algo ha salido mal')
+            const error = err.response.data.errors;
+            console.log(error);
+            const arrAux = [];
+            for (const key of Object.keys(error)){
+                arrAux.push(error[key].message)
+            }
+            setErrores(arrAux)
         }
+        
     }
 
     useEffect(() => {
-       getOneProductFromService();
-    }, []);
+        if(id){
+            getOneProductFromService();
+        }
+    }, [id]);
 
     
     return (
         <div>
             <h1>Agregar producto a inventario</h1>
+            {errores.map((err,i)=><p key={i}>{err}</p>)}
             <Formik
                 enableReinitialize
                 
@@ -61,7 +67,7 @@ const FormList = () => {
                             .required("Debe ingresar una breve descripcion del producto"),
                 
                         cantidad: Yup.number()
-                            .min(0,"No puedes ingresar 0 productos al inventario")
+                            .min(1,"No puedes ingresar 0 productos al inventario")
                             .max(1000, "No puedes ingresar más de 1000 artículos de un solo producto al inventario")
                             .required("Debe ingresar cantidad entre 1 y 999 de producto")
                         })
@@ -72,7 +78,6 @@ const FormList = () => {
             >
                 {({errors,touched})=>(
                     <Form>
-
                         <label htmlFor='nombre'>Nombre del producto</label>
                         <Field type='text' id='nombre' name='nombre'/>
                         {errors.nombre && touched.nombre ? <p>{errors.nombre}</p>: null}
