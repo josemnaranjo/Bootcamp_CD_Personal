@@ -1,25 +1,15 @@
-import React, {useState,useEffect} from 'react';
+import React from 'react';
 import {Formik,Form, Field, FieldArray} from 'formik'
 import * as Yup from 'yup' 
-import { createPokemon } from '../services/pokemon.services';
-import { useNavigate, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { findOnePokemon, getNotesFromPokemon } from '../services/pokemon.services';
 
 
 
-const PkmForm = () => {
 
-    const {id}= useParams();
+const PkmForm = (props) => {
+    const{pokemon,entrenador,tipos,rating,comentario,onSubmitProp}=props;
 
-    const [pokemon,setPokemon]=useState({
-        pokemon:"",
-        entrenador:"",
-        tipos: [],
-        rating:"",
-        comentario:""
-    })
     const valSchema = Yup.object().shape({
         pokemon: Yup.string()
         .min(1,"Debes ingresar un nombre")
@@ -36,29 +26,7 @@ const PkmForm = () => {
         .required("Este campo es obligatorio")
 
     })
-    const navigate = useNavigate();
 
-    const getPokemonFromService = async()=>{
-        const pokemon = await findOnePokemon(id);
-        // console.log(pokemon.data)
-        setPokemon(pokemon.data)
-    }
-
-    const createPokemonFromService = async (pokemon) =>{
-        try{
-            const newPokemon = await createPokemon(pokemon);
-            console.log(newPokemon.data);
-            setPokemon({...newPokemon.data})
-            navigate('/')
-        }catch(err){
-            console.log(err)
-        }
-    }
-
-    useEffect(() => {
-        id && getPokemonFromService()
-    }, []);
-    
     return (
         <div><Navbar bg='light'>
         <Container>
@@ -67,9 +35,15 @@ const PkmForm = () => {
     </Navbar>
             <h1>¡Un pokemon salvaje ha aparecido!</h1>
             <Formik
-            initialValues={pokemon}
+            initialValues={{
+                pokemon:pokemon,
+                entrenador:entrenador,
+                tipos:tipos,
+                rating:rating,
+                comentario:comentario
+            }}
             validationSchema = {valSchema}
-            onSubmit={createPokemonFromService}
+            onSubmit={onSubmitProp}
             enableReinitialize
             >
             {({errors,touched,values})=>(

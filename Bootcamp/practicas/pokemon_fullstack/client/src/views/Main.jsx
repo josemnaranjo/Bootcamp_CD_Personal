@@ -33,8 +33,11 @@ const Main = () => {
         }
     }
 
-    const toEdit = (id) =>{
+    const toEditPkm = (id) =>{
         navigate('/edit-pokemon/'+id)
+    }
+    const toEditNotes = (id)=>{
+        
     }
 
     useEffect(() => {
@@ -80,7 +83,8 @@ const Main = () => {
                         <td>{pokemon.tipos[0]} {pokemon.tipos[1]} {pokemon.tipos[2]}</td>
                         <td>
                             <Button variant='danger' onClick={()=>deletePokemonFromService(pokemon._id)}>Liberar</Button> 
-                            <Button variant='secondary' onClick={()=>toEdit(pokemon._id)}>Editar</Button>
+                            <Button variant='secondary' onClick={()=>toEditPkm(pokemon._id)}>Editar Pokemon</Button>
+                            <Button variant='secondary' onClick={()=>toEditNotes(pokemon._id)}>Editar Notas</Button>
                         </td>
                     </tr>))}
                 </tbody>
