@@ -12,7 +12,7 @@ import Navbar from 'react-bootstrap/Navbar';
 
 const Main = () => {
     const [pokemones,setPokemones]=useState([]);
-
+    
     const navigate = useNavigate()
 
     const getAllPokemonsFromService = async()=>{
@@ -33,8 +33,8 @@ const Main = () => {
         }
     }
 
-    const toEdit = () =>{
-        navigate('/create-pokemon')
+    const toEdit = (id) =>{
+        navigate('/edit-pokemon/'+id)
     }
 
     useEffect(() => {
@@ -80,7 +80,7 @@ const Main = () => {
                         <td>{pokemon.tipos[0]} {pokemon.tipos[1]} {pokemon.tipos[2]}</td>
                         <td>
                             <Button variant='danger' onClick={()=>deletePokemonFromService(pokemon._id)}>Liberar</Button> 
-                            <Button variant='secondary' onClick={toEdit}>Editar</Button>
+                            <Button variant='secondary' onClick={()=>toEdit(pokemon._id)}>Editar</Button>
                         </td>
                     </tr>))}
                 </tbody>

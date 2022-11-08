@@ -11,6 +11,7 @@ function App() {
         <Routes>
             <Route path='/' element={<Main/>}/>
             <Route path='/create-pokemon' element={<PkmForm/>}/>
+            <Route path='/edit-pokemon/:id' element={<PkmForm/>}/>
         </Routes>
     </div>
   );

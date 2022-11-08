@@ -1,14 +1,17 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import {Formik,Form, Field, FieldArray} from 'formik'
 import * as Yup from 'yup' 
-import { useState } from 'react';
 import { createPokemon } from '../services/pokemon.services';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { findOnePokemon, getNotesFromPokemon } from '../services/pokemon.services';
+
 
 
 const PkmForm = () => {
+
+    const {id}= useParams();
 
     const [pokemon,setPokemon]=useState({
         pokemon:"",
@@ -34,7 +37,12 @@ const PkmForm = () => {
 
     })
     const navigate = useNavigate();
-    
+
+    const getPokemonFromService = async()=>{
+        const pokemon = await findOnePokemon(id);
+        // console.log(pokemon.data)
+        setPokemon(pokemon.data)
+    }
 
     const createPokemonFromService = async (pokemon) =>{
         try{
@@ -47,6 +55,9 @@ const PkmForm = () => {
         }
     }
 
+    useEffect(() => {
+        id && getPokemonFromService()
+    }, []);
     
     return (
         <div><Navbar bg='light'>
