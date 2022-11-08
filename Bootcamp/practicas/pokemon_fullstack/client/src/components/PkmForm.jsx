@@ -46,7 +46,7 @@ const PkmForm = () => {
             <Navbar.Brand href='/'>PokeApp</Navbar.Brand>
         </Container>
     </Navbar>
-            <h1>Crea un nuevo pokemon</h1>
+            <h1>¡Un pokemon salvaje ha aparecido!</h1>
             <Formik
             initialValues={pokemon}
             validationSchema = {valSchema}

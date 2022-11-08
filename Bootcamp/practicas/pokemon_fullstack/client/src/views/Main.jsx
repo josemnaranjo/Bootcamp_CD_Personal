@@ -48,12 +48,12 @@ const Main = () => {
                     <Navbar.Brand href='/'>PokeApp</Navbar.Brand>
                         <Nav>
                             <Nav.Item >
-                                <Nav.Link href='/create-pokemon'>Crear</Nav.Link>
+                                <Nav.Link href='/create-pokemon'>Atrápalos ya!</Nav.Link>
                             </Nav.Item>
                         </Nav>
                 </Container>
             </Navbar>
-            <h1>Pokemones atrapados</h1>
+            <h1>Pokedex</h1>
             <Table striped bordered hover>
                 <thead>
                     <tr>

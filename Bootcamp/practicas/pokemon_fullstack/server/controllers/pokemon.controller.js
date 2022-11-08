@@ -1,4 +1,5 @@
 const {Pokemon} = require('../models/pokemones.model');
+const {Notas} =require('../models/notas.model');
 
 module.exports.createPokemon = (req,res)=>{
     Pokemon.create({
@@ -9,6 +10,22 @@ module.exports.createPokemon = (req,res)=>{
     .then(pokemon=>res.json(pokemon))
     .catch(err=>res.status(400).json(err))
 }
+
+module.exports.createPokemonWithNotes = async (req,res)=>{
+    try{
+        const {pokemon, entrenador,tipos,rating,comentario} = req.body;
+        const nota = new Notas({rating,comentario,nombreCreador:"Nombre de usuario"});
+        const pkn = new Pokemon({pokemon,entrenador,tipos});
+        pkn.notas.push(nota);
+        await nota.save();
+        await pkn.save();
+        res.json({message:"",pokemon:pkn,nota:nota})
+    }catch(err){
+        res.json({message:"Algo ha salido mal",errors:err.errors})
+    }
+
+}
+
 
 module.exports.catchThemAll = (req,res)=>{
     Pokemon.find({})

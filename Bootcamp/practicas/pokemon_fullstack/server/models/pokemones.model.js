@@ -11,7 +11,8 @@ const PokemonSchema = new mongoose.Schema({
     },
     tipos: {
         type:Array
-    }
+    },
+    notas: [{type:mongoose.Schema.Types.ObjectId,ref:"Notas"}]
     
 }, {timestamps:true});
 
