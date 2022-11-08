@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  margin: 0 auto;
 }
 
 table {
@@ -9,4 +10,9 @@ table {
 
 .btn {
     margin-right: 10px;
+}
+
+Form{
+    max-width: 800px;
+    margin: 0 auto;
 }

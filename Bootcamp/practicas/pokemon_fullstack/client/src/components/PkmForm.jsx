@@ -2,8 +2,8 @@ import React from 'react';
 import {Formik,Form, Field, FieldArray} from 'formik'
 import * as Yup from 'yup' 
 import { useState } from 'react';
-import { createPokemon, deletePokemon } from '../services/pokemon.services';
-import { useNavigate,useParams } from 'react-router-dom';
+import { createPokemon } from '../services/pokemon.services';
+import { useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
@@ -13,7 +13,9 @@ const PkmForm = () => {
     const [pokemon,setPokemon]=useState({
         pokemon:"",
         entrenador:"",
-        tipos: []
+        tipos: [],
+        rating:"",
+        comentario:""
     })
     const valSchema = Yup.object().shape({
         pokemon: Yup.string()
@@ -21,8 +23,14 @@ const PkmForm = () => {
         .required("Este campo es obligatorio"),
         
         entrenador: Yup.string()
-        .min(1,"Debes ingresar un entrenador")
         .required("Este campo es obligatorio"),
+
+        rating: Yup.number()
+        .required("Esta campo es obligatorio"),
+
+        comentario: Yup.string()
+        .min(8,"El contenido de la reseña es muy corto")
+        .required("Este campo es obligatorio")
 
     })
     const navigate = useNavigate();
@@ -101,7 +109,24 @@ const PkmForm = () => {
                         </div>)}>
                         </FieldArray>
                     </div>
-                    <button type='submit'>Crear pokemon</button>
+                    <div>
+                        <label htmlFor='rating'>Rating del pokemon</label>
+                        <Field id="rating" type="number" as="select" className="form-select" name="rating">
+                            <option value={1}>1 Estrella</option>
+                            <option value={2}>2 Estrellas</option>
+                            <option value={3}>3 Estrellas</option>
+                            <option value={4}>4 Estrellas</option>
+                            <option value={5}>5 Estrellas</option>
+                        </Field>
+                        {errors.rating && touched.rating ? <p>{errors.rating}</p> : null }
+                    </div>
+
+                    <div>
+                        <label htmlFor='comentario'>Nombre del comentario: </label>
+                        <Field type='text' name='comentario' as="textarea"/>
+                        {errors.comentario && touched.comentario ? <p>{errors.comentario}</p> : null }
+                    </div>
+                    <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear pokemon</button>
                 </Form>
             )}
             </Formik>
