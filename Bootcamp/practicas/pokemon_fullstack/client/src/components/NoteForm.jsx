@@ -1,11 +1,8 @@
 import React from 'react';
-import {Formik,Form, Field, FieldArray} from 'formik'
+import {Formik,Form, Field} from 'formik'
 import * as Yup from 'yup' 
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-
-
-;
 
 const NoteForm = (props) => {
     const{rating,comentario,onSubmitProp}=props;
@@ -14,19 +11,20 @@ const NoteForm = (props) => {
         rating: Yup.number()
         .required("Esta campo es obligatorio"),
 
-        comentario: Yup.string()
-        .min(8,"El contenido de la reseña es muy corto")
-        .required("Este campo es obligatorio")
+        // comentario: Yup.string()
+        // .min(8,"El contenido de la reseña es muy corto")
+        // .required("Este campo es obligatorio")
 
     })
     return (
-        <div><Navbar bg='light'>
-        <Container>
-            <Navbar.Brand href='/'>PokeApp</Navbar.Brand>
-        </Container>
-    </Navbar>
-            <h1>Cuentanos más de tu pokemon</h1>
-            <Formik
+        <div>
+        <Navbar bg='light'>
+            <Container>
+                <Navbar.Brand href='/'>PokeApp</Navbar.Brand>
+            </Container>
+        </Navbar>
+        <h1>Cuentanos más de tu pokemon</h1>
+        <Formik
             initialValues={{
                 rating:rating,
                 comentario:comentario
@@ -52,12 +50,12 @@ const NoteForm = (props) => {
                     <div>
                         <label htmlFor='comentario'>Nombre del comentario: </label>
                         <Field type='text' name='comentario' as="textarea"/>
-                        {errors.comentario && touched.comentario ? <p>{errors.comentario}</p> : null }
+                        {/* {errors.comentario && touched.comentario ? <p>{errors.comentario}</p> : null } */}
                     </div>
                     <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear pokemon</button>
                 </Form>
             )}
-            </Formik>
+        </Formik>
         </div>
     );
 }

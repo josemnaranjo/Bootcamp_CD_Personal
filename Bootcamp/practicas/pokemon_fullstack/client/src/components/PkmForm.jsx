@@ -15,8 +15,8 @@ const PkmForm = (props) => {
         .min(1,"Debes ingresar un nombre")
         .required("Este campo es obligatorio"),
         
-        entrenador: Yup.string()
-        .required("Este campo es obligatorio"),
+        // entrenador: Yup.string()
+        // .required("Este campo es obligatorio"),
 
         rating: Yup.number()
         .required("Esta campo es obligatorio"),
@@ -111,7 +111,7 @@ const PkmForm = (props) => {
                         <Field type='text' name='comentario' as="textarea"/>
                         {errors.comentario && touched.comentario ? <p>{errors.comentario}</p> : null }
                     </div>
-                    <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear pokemon</button>
+                    <button type='submit' >Crear pokemon</button>
                 </Form>
             )}
             </Formik>

@@ -50,7 +50,7 @@ const Notes = () => {
             </div>
             
             <div className='container-notas'>
-                <h1>Comentarios de otros entreandores</h1>
+                <h1>Comentarios de otros entrenadores</h1>
                 {notas.map((nota,i)=>(
                     <div className='nota' key={i}>
                         <p>{nota.comentario}</p>

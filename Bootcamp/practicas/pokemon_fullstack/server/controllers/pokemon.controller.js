@@ -23,9 +23,7 @@ module.exports.createPokemonWithNotes = async (req,res)=>{
     }catch(err){
         res.json({message:"Algo ha salido mal",errors:err.errors})
     }
-
 }
-
 
 module.exports.catchThemAll = (req,res)=>{
     Pokemon.find({})

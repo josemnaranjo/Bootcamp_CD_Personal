@@ -7,7 +7,8 @@ import { createNote, findOnePokemon } from '../services/pokemon.services';
 const AddNotas = () => {
     const navigate = useNavigate();
     const {id}= useParams();
-    const [pokemon,setPokemon]= useState()
+    const [pokemon,setPokemon]= useState();
+    const [errors,setErrors]=useState([]);
 
     const getPokemonFromService = async ()=>{
         const pkm = await findOnePokemon(id);
@@ -21,12 +22,25 @@ const AddNotas = () => {
     const addNoteFromServices = async (values)=>{
         console.log("VALUES DE FORMULARIO DE NUEVA NOTA ", values);
         const valuesFinal = {...values,idPokemon:id};
-        await createNote(valuesFinal);
-        navigate('/');
+        const nota = await createNote(valuesFinal);
+        if(nota.data.comentario){
+            navigate('/');
+        }else{
+            console.log("ERROR DESDE BACKEND-ADDNOTAS",nota.data.errors);
+            const errorResponse= nota.data.errors;
+            console.log("OBJECT KEYS", Object.keys(errorResponse));
+            const errorArr = [];
+            for (const key of Object.keys(errorResponse)){
+                console.log(errorResponse[key]);
+                errorArr.push(errorResponse[key].message)
+            }
+            setErrors(errorArr);
+        }
     }
     return (
         <div>
             <NoteForm raiting={1} comentario="" onSubmitProp={addNoteFromServices} />
+            {errors.map((err,i)=><p key={i}>{err}</p>)}
             <h1>Informacion del pokemon</h1>
             <h3>Nombre del pokemon: {pokemon?.pokemon}</h3>
             <h3>Nombre del entrenador: {pokemon?.entrenador}</h3>
