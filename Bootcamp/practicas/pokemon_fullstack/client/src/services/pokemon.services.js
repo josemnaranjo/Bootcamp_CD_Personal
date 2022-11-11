@@ -12,7 +12,7 @@ export const deletePokemon = async (id)=> await axios.delete(`http://localhost:8
 
 export const getNotesFromPokemon = async(id)=> await axios.get('http://localhost:8000/api/notes/'+id);
 
-export const createNote = async(info)=> await axios.post('http://localhost:8000/api/create-note',info)
+export const createNote = async(id,info)=> await axios.post(`http://localhost:8000/api/create-note/${id}`,info)
 
 
 

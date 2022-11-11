@@ -12,6 +12,6 @@ module.exports = app =>{
 
 
     //NOTAS
-    app.post('/api/create-note/',notasController.createNota);
+    app.post('/api/create-note/:id',notasController.createNota);
     app.get('/api/notes/:idPokemon',notasController.getNoteFromPokemon);
 }

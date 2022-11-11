@@ -10,19 +10,11 @@ const AddNotas = () => {
     const [pokemon,setPokemon]= useState();
     const [errors,setErrors]=useState([]);
 
-    const getPokemonFromService = async ()=>{
-        const pkm = await findOnePokemon(id);
-        setPokemon(pkm.data);
-    }
-
-    useEffect(() => {
-        getPokemonFromService()
-    }, []);
 
     const addNoteFromServices = async (values)=>{
         console.log("VALUES DE FORMULARIO DE NUEVA NOTA ", values);
         const valuesFinal = {...values,idPokemon:id};
-        const nota = await createNote(valuesFinal);
+        const nota = await createNote(id,valuesFinal);
         if(nota.data.comentario){
             navigate('/');
         }else{

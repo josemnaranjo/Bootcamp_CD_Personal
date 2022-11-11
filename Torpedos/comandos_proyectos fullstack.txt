@@ -10,6 +10,15 @@ mkdir routes
 cd ..
 npx create-react-app client
 cd client
-npm i axios react-router-dom formik moment
+npm i axios react-router-dom formik yup moment
+ 
+
 
  
+
+
+
+
+
+Para login /en server 
+npm I detonv jsonwebtoken cookie-parser mongoose-unique-validator@3.0.0

@@ -4,7 +4,7 @@ import { findOnePokemon, updatePokemon } from '../services/pokemon.services';
 import PkmInfoForm from '../components/PkmInfoForm';
 
 const UpdatePkm = () => {
-    const [pokemon,setPokemon]=useState({});
+    const [pokemon,setPokemon]=useState();
     const {id}= useParams();
     const navigate =useNavigate()
 
@@ -34,7 +34,7 @@ const UpdatePkm = () => {
 
     return (
         <div>
-            <PkmInfoForm pokemon={pokemon.pokemon} entrenador={pokemon.entrenador} tipos={pokemon.tipos} onSubmitProp={updatePkm}/>
+           {pokemon && <PkmInfoForm pokemon={pokemon.pokemon} entrenador={pokemon.entrenador} tipos={pokemon.tipos} onSubmitProp={updatePkm}/>} 
         </div>
     );
 }
