@@ -1,5 +1,6 @@
 const pokemonController = require('../controllers/pokemon.controller');
 const notasController = require('../controllers/notas.controller');
+const UserController = require('../controllers/use.controller');
 
 module.exports = app =>{
 
@@ -14,4 +15,9 @@ module.exports = app =>{
     //NOTAS
     app.post('/api/create-note/:id',notasController.createNota);
     app.get('/api/notes/:idPokemon',notasController.getNoteFromPokemon);
+
+
+    //USUARIOS
+    app.post('/api/register',UserController.Register);
+    app.get('/api/users',UserController.getAll);
 }
