@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/pokemonfullstack',{
+mongoose.connect(process.env.DB_LINK,{
     useNewUrlParser:true,
     useUnifiedTopology:true
 })
