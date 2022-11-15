@@ -58,3 +58,13 @@ module.exports.getAll = (req,res) => {
         .then((users)=>res.json(users))
         .catch((err)=>res.json(err))
 }
+
+module.exports.getUser = async(req,res) => {
+    try{
+        const {id}=req.params;
+        const {email,firstName,lastName,_id} = await User.findById(id).exec();
+        res.json({email,firstName,lastName,_id})
+    }catch(err){
+        return{success:false,data:err.message}
+    }
+}
