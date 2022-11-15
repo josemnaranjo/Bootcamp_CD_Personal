@@ -7,31 +7,31 @@ const PeliculaForm = (props) => {
 
     const {titulo,duracion,actor1, actor2, rating,comentario,onSubmitProp} = props;
 
-    const valSchema = Yup.object().shape({
-        titulo: Yup.string()
-        .min(1,"Debes ingresar un titulo mayo a un caracter")
-        .required("Este campo es obligatorio"),
+    // const valSchema = Yup.object().shape({
+    //     titulo: Yup.string()
+    //     .min(1,"Debes ingresar un titulo mayo a un caracter")
+    //     .required("Este campo es obligatorio"),
 
-        // duracion: Yup.number()
-        // .min(1,"La duración debe ser mayo a 1")
-        // .required("La duración es obligatoria"),
+    //     // duracion: Yup.number()
+    //     // .min(1,"La duración debe ser mayo a 1")
+    //     // .required("La duración es obligatoria"),
 
-        actor1: Yup.string()
-        .required("Debes ingresar por lo menos un actor"),
+    //     actor1: Yup.string()
+    //     .required("Debes ingresar por lo menos un actor"),
 
-        actor2: Yup.string()
-        .required("Debes ingresar por lo menos un actor"),
+    //     actor2: Yup.string()
+    //     .required("Debes ingresar por lo menos un actor"),
 
-        fechaDeEstreno: Yup.date()
-        .required("debes ingresar una fecha de estreno"),
+    //     fechaDeEstreno: Yup.date()
+    //     .required("debes ingresar una fecha de estreno"),
 
-        rating: Yup.number()
-        .required("Debes ingresar una puntuación"),
+    //     rating: Yup.number()
+    //     .required("Debes ingresar una puntuación"),
 
-        comentario: Yup.string()
-        .min(5,"Tu comentario debe ser más largo")
-        .required("Debes ingresar un comentario")
-    })
+    //     comentario: Yup.string()
+    //     .min(5,"Tu comentario debe ser más largo")
+    //     .required("Debes ingresar un comentario")
+    // })
 
 
     return (
@@ -46,7 +46,7 @@ const PeliculaForm = (props) => {
                 rating:rating,
                 comentario:comentario
             }}
-            validationSchema={valSchema}
+            // validationSchema={valSchema}
             enableReinitialize
             onSubmit={(values,{setSubmitting})=>{
                 console.log(values);

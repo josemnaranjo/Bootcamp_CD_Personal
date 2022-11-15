@@ -36,8 +36,8 @@ UserSchema.virtual("confirmPassword")
     .set((value)=>(this._confirmPassword=value))
 
 UserSchema.pre("validate",function(next){
-    if(this.isNew && this.password !== this["confrirmPassword"]){
-        this.invalidate("confirmPassword","Las constraseñas deben ser iguales")
+    if(this.isNew && this.password !== this["confirmPassword"]){
+        this.invalidate("confirmPassword","Las contraseñas deben ser iguales")
     }
     next()
 })

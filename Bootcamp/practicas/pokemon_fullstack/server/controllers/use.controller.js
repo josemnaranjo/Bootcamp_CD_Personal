@@ -18,7 +18,7 @@ module.exports.Register = async(req,res) => {
 module.exports.getAll = (req,res) => {
     try{
         const allUsers = User.find({})
-        res.json({message:"",users:allUsers})
+        res.json(allUsers)
 
     }catch(err){
         res.json({message:"Algo salió mal",errors:err.errors})
