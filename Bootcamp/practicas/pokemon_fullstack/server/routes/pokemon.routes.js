@@ -5,8 +5,11 @@ const UserController = require('../controllers/use.controller');
 module.exports = app =>{
 
     //USUARIOS
-    app.post('/api/users/register',UserController.Register);
-    app.get('/api/users/all',UserController.getAll);
+    app.post('/api/register',UserController.Register);
+    app.get('/api/users/',UserController.getAll);
+    app.post('/api/login',UserController.Login);
+    app.post('/api/logout',UserController.Logout);
+
 
     //POKEMONES
     app.post('/api/create-pokemon',pokemonController.createPokemonWithNotes);
