@@ -15,7 +15,7 @@ module.exports = app =>{
 
     //POKEMONES
     app.post('/api/create-pokemon',authenticate, pokemonController.createPokemonWithNotes);
-    app.get('/api',authenticate, pokemonController.catchThemAll);
+    app.get('/api', pokemonController.catchThemAll);
     app.delete('/api/:id',authenticate, pokemonController.deletePokemon);
     app.put('/api/edit-pokemon/:id',authenticate, pokemonController.updatePokemon);
     app.get('/api/:id',authenticate, pokemonController.findOnePokemon);
