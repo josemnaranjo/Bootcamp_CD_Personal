@@ -61,6 +61,7 @@ const Main = () => {
 
     const logOut = async() =>{
         const {success} = await logout();
+        console.log(success);
         if(success) setUser(null)
         else window.alert("Error. No se pudo cerrar la sesión")
     }

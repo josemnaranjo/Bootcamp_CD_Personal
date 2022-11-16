@@ -14,14 +14,15 @@ const Login = () => {
         console.log("VALORES FORMULARIO", values);
 
         const response = await login(values);
+        
 
         if(response.data.message===""){
-            console.log("usuario loggeado ", response.data._id);
+            console.log("usuario loggeado ", response);
             const userID =response.data._id;
             const response2 = await getUserAuth(userID);
             console.log(response2);
-            // setUser(response2.data);
-            // navigate('/');
+            setUser(response2.data);
+            navigate('/');
 
         }else{
             const errorResponse = response.data.errors;

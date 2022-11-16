@@ -79,7 +79,7 @@ const RegisterForm = (props) => {
                         {errors.confirmPassword && touched.confirmPassword ? <p>{errors.confirmPassword}</p>:null}
                     </div>
                     
-                    <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear pokemon</button>
+                    <button type='submit' disabled={Object.values(errors).length>0 || Object.values(touched).length===0}>Crear usuario</button>
                 </Form>
             )}
         </Formik>

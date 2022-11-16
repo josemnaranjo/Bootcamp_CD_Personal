@@ -18,13 +18,13 @@ export const createNote = async(id,info)=> await axios.post(`http://localhost:80
 
 export const createUser = async(user) => await axios.post('http://localhost:8000/api/register',user);
 
-export const login = async(user)=> await axios.post('http://localhost:8000/api/login',user);
+export const login = async(values)=> await axios.post('http://localhost:8000/api/login',values);
 
 export const logout = async() => {
     try{
         const response = await axios.post('http://localhost:8000/api/logout');
-
-        if(!response.ok){
+        if(!response.data.success){
+            console.log("DESDE PKM SERVICE ",response.data.success);
             return {success:false, data:response}
         }else{
             return {success:true,data:response}

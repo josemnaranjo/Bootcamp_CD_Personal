@@ -18,9 +18,9 @@ const Register = () => {
 
         if(response.data.message===""){
             console.log("usuario creado ", response.data);
-            // const response2 = await getUserAuth(response.data._id);
-            // setUser(response2.data);
-            // navigate('/');
+            const response2 = await getUserAuth(response.data._id);
+            setUser(response2.data);
+            navigate('/');
         }else{
             const errorResponse = response.data.errors;
             const errorArr =[];
