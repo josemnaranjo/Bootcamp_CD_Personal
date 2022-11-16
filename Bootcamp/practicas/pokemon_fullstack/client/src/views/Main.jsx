@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import { deletePokemon, getPokemons } from '../services/pokemon.services';
+import { deletePokemon, getPokemons, logout } from '../services/pokemon.services';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import Table from 'react-bootstrap/Table';
@@ -7,10 +7,21 @@ import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
+import { useUser } from '../contexts/userContext';
 
 
 
 const Main = () => {
+    const {user,setUser} = useUser();
+
+    const renderInfo = () =>{
+        if(user){
+            return (<>Bienvenido: {user.firstName} {user.lastName}</>)
+        }else{
+            return (<>No hay usuario loggeado</>)
+        }
+    }
+
     const [pokemones,setPokemones]=useState([]);
     
     const navigate = useNavigate()
@@ -48,8 +59,16 @@ const Main = () => {
         getAllPokemonsFromService()
     }, []);
 
+    const logOut = async() =>{
+        const {success} = await logout();
+        if(success) setUser(null)
+        else window.alert("Error. No se pudo cerrar la sesión")
+    }
+
     return (
         <div>
+            <h3>{renderInfo()}</h3>
+            {user && <button onClick={logOut}>LOGOUT</button>}
             <Navbar bg='light'>
                 <Container>
                     <Navbar.Brand href='/'>PokeApp</Navbar.Brand>

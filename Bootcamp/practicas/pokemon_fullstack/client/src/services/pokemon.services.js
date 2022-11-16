@@ -12,8 +12,28 @@ export const deletePokemon = async (id)=> await axios.delete(`http://localhost:8
 
 export const getNotesFromPokemon = async(id)=> await axios.get('http://localhost:8000/api/notes/'+id);
 
-export const createNote = async(id,info)=> await axios.post(`http://localhost:8000/api/create-note/${id}`,info)
+export const createNote = async(id,info)=> await axios.post(`http://localhost:8000/api/create-note/${id}`,info,{withCredentials:true})
 
 
 
+export const createUser = async(user) => await axios.post('http://localhost:8000/api/register',user);
 
+export const login = async(user)=> await axios.post('http://localhost:8000/api/login',user);
+
+export const logout = async() => {
+    try{
+        const response = await axios.post('http://localhost:8000/api/logout');
+
+        if(!response.ok){
+            return {success:false, data:response}
+        }else{
+            return {success:true,data:response}
+        }
+
+    }catch(err){
+        return {success:false,data:{errors:{error:err}}}
+    }
+}
+
+
+export const getUserAuth = async(id) => await axios.get(`http://localhost:8000/api/user/${id}`,{withCredentials:true})

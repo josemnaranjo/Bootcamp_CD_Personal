@@ -30,7 +30,7 @@ module.exports.Login = async(req,res) =>{
         }
 
         //generamos un token de usuario, cuando las dos validaciones anteriores son exitosas
-        const userToken = jwt.sign({id:user._id},process.env.SECRET_KEY);
+        const userToken = jwt.sign({_id:user._id},process.env.SECRET_KEY);
 
         //almacenamos el token en una cookie
         return res.cookie("userToken",userToken,process.env.SECRET_KEY,{httpOnly:true})
