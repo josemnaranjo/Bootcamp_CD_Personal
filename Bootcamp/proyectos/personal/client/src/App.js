@@ -1,23 +1,25 @@
-import logo from './logo.svg';
 import './App.css';
+import {Routes, Route} from 'react-router-dom';
+import Home from './views/Home';
+import InicioDeJuego from './views/InicioDeJuego';
+import Votaciones from './views/Votaciones';
+import ResultadoFinal from './views/ResultadoFinal.jsx';
+import Comentarios from './views/Comentarios';
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Routes>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/inicio-del-juego' element={<InicioDeJuego/>}/>
+            <Route path='/votaciones' element={<Votaciones/>}/>
+            <Route path='/final-del-juego' element={<ResultadoFinal/>}/>
+            <Route path='/comentarios' element={<Comentarios/>}/>
+        </Routes>
+
+      
     </div>
   );
 }
