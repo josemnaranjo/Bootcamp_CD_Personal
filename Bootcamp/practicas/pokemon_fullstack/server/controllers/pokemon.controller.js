@@ -25,6 +25,7 @@ module.exports.createPokemonWithNotes = async (req,res)=>{
     }
 }
 
+
 module.exports.catchThemAll = (req,res)=>{
     Pokemon.find({})
         .then(pokemones=>res.json(pokemones))
