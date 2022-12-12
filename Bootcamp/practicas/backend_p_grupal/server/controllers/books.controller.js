@@ -59,9 +59,8 @@ module.exports.addBookOfInterest = async (req,res) => {
     }
 };
 
-module.exports.getAllBooksOfInterestOfAUser = async (req,res) => {
+module.exports.getAllBooksOfInterestOfAnUser = async (req,res) => {
     try{
-    
         //obtengo el usuario que solicitó la reserva del libro a través de su
         //id. El que obtengo del userState y lo paso como params
         const userId  = req.params.id;
@@ -72,6 +71,28 @@ module.exports.getAllBooksOfInterestOfAUser = async (req,res) => {
         const booksInt = user.booksInterested;
 
         res.json(booksInt);
+
+    }catch(err){
+        res.status(500).json({
+            message:"No hemos podido agregar el libro a tus grupo de interés",
+            err
+        })
+    }
+
+}
+
+module.exports.getAllBooksCreatedByAnUser = async (req,res) => {
+    try{
+        //obtengo el usuario que solicitó la reserva del libro a través de su
+        //id. El que obtengo del userState y lo paso como params
+        const userId  = req.params.id;
+        
+        //obtengo toda la información de ese usuario 
+        const user = await User.findById(userId);
+        //retorno solo el arreglo de los libros que obtuvo
+        const books = user.myBooks;
+
+        res.json(books);
 
     }catch(err){
         res.status(500).json({
