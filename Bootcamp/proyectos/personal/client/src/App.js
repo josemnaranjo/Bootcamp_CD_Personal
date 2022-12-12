@@ -18,8 +18,6 @@ function App() {
             <Route path='/final-del-juego' element={<ResultadoFinal/>}/>
             <Route path='/comentarios' element={<Comentarios/>}/>
         </Routes>
-
-      
     </div>
   );
 }
