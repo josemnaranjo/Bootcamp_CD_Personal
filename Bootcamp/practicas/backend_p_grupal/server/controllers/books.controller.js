@@ -4,15 +4,16 @@ const { User } = require('../models/user.model');
 
 module.exports.createBook = async (req,res) => {
     try{
+        //id de usuario creador se obtiene a través de userState
         const user = req.params;
-        const id = user.id;
+        const creatorId = user.id;
 
         //creacion de nuevo libro en "book" collection
         const {title, author, genre, summary} = req.body;
-        const newBook = await Book.create({title,author,genre,summary});
+        const newBook = await Book.create({title,author,genre,summary,creatorId});
 
         //se agrega este nuevo libro al usuario que lo creó
-        await User.findByIdAndUpdate(id,{
+        await User.findByIdAndUpdate(creatorId,{
             $push:{
                 myBooks:newBook
             }
@@ -35,21 +36,30 @@ module.exports.addBookOfInterest = async (req,res) => {
         const bookId = req.params.id;
         console.log(bookId)
         const book = await Book.findById(bookId);
+        //obtengo el id del creador del libro
+        const creatorOfTheBookId = book.creatorId;
+        //y agrego el libro interesado a su campo "MyBooksThatInterestOtherUsers"
+
+        await User.findByIdAndUpdate(creatorOfTheBookId,{
+            $push:{
+                myBooksThatInterestOtherUsers:book
+            }
+        })
 
         //obtengo el usuario que solicitó la reserva del libro a través de su
         //id. El que obtengo del userState. Lo paso dentro del body
         const result  = req.body;
         const userId = result._id
-        
-        //actualizo la información del usuario
-
-        const userWithBookAdded = await User.findByIdAndUpdate(userId,{
+        // y actualizo lo agrego a su campo "booksImInterested"
+        await User.findByIdAndUpdate(userId,{
             $push:{
-                booksInterested:book
+                booksImInterested:book
             }
-        })
+        });
 
-        res.json({message:"Exito",userWithBookAdded:userWithBookAdded})
+
+
+        res.json({message:"Exito"})
 
     }catch(err){
         res.status(500).json({

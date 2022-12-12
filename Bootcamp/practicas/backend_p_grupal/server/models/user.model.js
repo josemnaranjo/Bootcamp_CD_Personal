@@ -28,7 +28,8 @@ const UserSchema = new mongoose.Schema({
         minlength:[8,"La contraseña debe tener minimo 8 caracteres"],
     },
     myBooks: [BookSchema],
-    booksInterested : [BookSchema]
+    booksImInterested: [BookSchema],
+    myBooksThatInterestOtherUsers: [BookSchema]
 
 },{timestamps:true});
 

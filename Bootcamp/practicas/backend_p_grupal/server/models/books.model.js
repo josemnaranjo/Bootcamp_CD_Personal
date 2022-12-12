@@ -20,6 +20,10 @@ const BookSchema = new mongoose.Schema({
         type:String,
         default:"",
         required:[true,"Deber ingresar un breve resumen del libro"]
+    },
+    creatorId:{
+        type:String,
+        required:[true,"Id de creador es obligatorio"]
     }
 },{timestamps:true});
 
