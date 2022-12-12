@@ -61,26 +61,17 @@ module.exports.addBookOfInterest = async (req,res) => {
 
 module.exports.getAllBooksOfInterestOfAUser = async (req,res) => {
     try{
-        //obtengo el id del libro que quiero reservar,
-        // el id lo obtengo a tráves de los params
-        const bookId = req.params.id;
-        console.log(bookId)
-        const book = await Book.findById(bookId);
-
+    
         //obtengo el usuario que solicitó la reserva del libro a través de su
-        //id. El que obtengo del userState. Lo paso dentro del body
-        const result  = req.body;
-        const userId = result._id
+        //id. El que obtengo del userState y lo paso como params
+        const userId  = req.params.id;
         
-        //actualizo la información del usuario
+        //obtengo toda la información de ese usuario 
+        const user = await User.findById(userId);
+        //retorno solo el arreglo de los libros que está interesado
+        const booksInt = user.booksInterested;
 
-        const userWithBookAdded = await User.findByIdAndUpdate(userId,{
-            $push:{
-                booksInterested:book
-            }
-        })
-
-        res.json({message:"Exito",userWithBookAdded:userWithBookAdded})
+        res.json(booksInt);
 
     }catch(err){
         res.status(500).json({
