@@ -16,7 +16,7 @@ module.exports = app => {
      //BOOKS
     app.post('/api/books/new/:id',authenticate,BookSchema.createBook);
     app.post('/api/books/add-to-interest/:id',authenticate,BookSchema.addBookOfInterest);
-    app.delete('/api/books/delete/:id',authenticate,BookSchema.deleteBook);
+    app.delete('/api/books/delete/:id',authenticate,BookSchema.deleteBookUserCreator);
     // app.get('/api/books/find-books-of-interest-of-an-user/:id',authenticate,BookSchema.getAllBooksOfInterestOfAnUser);
     // app.get('/api/books/find-books-of-interest-other-users/:id',authenticate,BookSchema.getAllBooksThatInterestOthers);
     // app.get('/api/books/find-books-of-an-user/:id',authenticate,BookSchema.getAllBooksCreatedByAnUser);

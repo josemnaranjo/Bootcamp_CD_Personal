@@ -140,7 +140,7 @@ module.exports.getAllBooksCreatedByAnUser = async (req,res) => {
     }
 };
 
-module.exports.deleteBook = async (req,res) => {
+module.exports.deleteBookUserCreator = async (req,res) => {
     try{
         //obtengo el id del libro que quiero borrar a través de params
         const bookId = req.params.id;
