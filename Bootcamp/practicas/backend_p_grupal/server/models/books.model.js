@@ -24,6 +24,9 @@ const BookSchema = new mongoose.Schema({
     creatorId:{
         type:String,
         required:[true,"Id de creador es obligatorio"]
+    },
+    interestId:{
+        type:String,
     }
 },{timestamps:true});
 

@@ -34,7 +34,6 @@ module.exports.addBookOfInterest = async (req,res) => {
         //obtengo el id del libro que quiero reservar,
         // el id lo obtengo a tráves de los params
         const bookId = req.params.id;
-        console.log(bookId)
         const book = await Book.findById(bookId);
         //obtengo el id del creador del libro
         const creatorOfTheBookId = book.creatorId;
@@ -55,7 +54,15 @@ module.exports.addBookOfInterest = async (req,res) => {
             $push:{
                 booksImInterested:book
             }
-        });
+        },{new:true});
+
+        //paso el id del solicitante al libro que le interesa
+        await Book.findByIdAndUpdate(bookId,{
+            $push:{
+                interestId:userId,
+            }
+        }); 
+
 
 
 
@@ -131,7 +138,41 @@ module.exports.getAllBooksCreatedByAnUser = async (req,res) => {
             err
         })
     }
+};
 
+module.exports.deleteBook = async (req,res) => {
+    try{
+        //obtengo el id del libro que quiero borrar a través de params
+        const bookId = req.params.id;
+        //obtengo el libro 
+        const bookToDelete = await Book.findById(bookId);
+        //id del creador 
+        const idCreator = bookToDelete.creatorId;
+        //obtener usuario que creo el libro
+        const userCreator = await User.findById(idCreator);
+        //obtener el arreglo "myBooksThatInterestOther" 
+        const myBooksThatInterestOthers = userCreator.myBooksThatInterestOtherUsers;
+        //obtener arreglo "myBooks"
+        const myBooks = userCreator.myBooks;
+        //filtrar el arreglo "myBooksThatInterestOther"
+        const filteredMyBookThatInOthers = myBooksThatInterestOthers.filter(book=> book.id !== bookId);
+        //filtar arreglo "myBooks"
+        const filteredMyBooks = myBooks.filter(book=> book.id !== bookId);
+        //actualizar arreglo "myBooksThatInterestOther" del usuario creador
+        await User.findByIdAndUpdate(idCreator,{myBooksThatInterestOtherUsers:filteredMyBookThatInOthers},{new:true});
+        //actualizar arreglo "myBook" del usuario creador
+        await User.findByIdAndUpdate(idCreator,{myBooks:filteredMyBooks},{new:true})
+        //borro el libro de la coleccion "books"
+        await Book.findByIdAndDelete(bookId);
+
+        res.json({message:"Exito"});
+
+    }catch(err){
+        res.status(500).json({
+            message:"No hemos podido eliminar el libro",
+            err
+        })
+    }
 }
 
 
